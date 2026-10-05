@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DHIS2 Tools</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <p class="server-label">Connected to</p>
+    <h1 id="server">Checking tab…</h1>
+    <p id="base" class="base"></p>
+  </header>
+
+  <main id="main" hidden>
+    <section class="block">
+      <h2>Data element</h2>
+      <p id="de-info" class="hint"></p>
+      <button id="coc-btn" class="primary" disabled>Show COCs</button>
+      <p class="hint small">Shortcut: <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd></p>
+    </section>
+
+    <section class="block">
+      <h2>Download as CSV</h2>
+
+      <div class="export" data-resource="organisationUnits"
+           data-suggest="id,name,code,level,path">
+        <div class="row">
+          <span class="name">Org units</span>
+          <button class="dl">Download</button>
+        </div>
+        <details>
+          <summary>Fields</summary>
+          <input type="text" spellcheck="false" placeholder="Server default">
+          <button type="button" class="link suggest">Use id, name, code, level, path</button>
+        </details>
+      </div>
+
+      <div class="export" data-resource="dataElements"
+           data-suggest="id,name,shortName,code,valueType,domainType,aggregationType">
+        <div class="row">
+          <span class="name">Data elements</span>
+          <button class="dl">Download</button>
+        </div>
+        <details>
+          <summary>Fields</summary>
+          <input type="text" spellcheck="false" placeholder="Server default">
+          <button type="button" class="link suggest">Use id, name, code, value type and more</button>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <p id="notice" class="notice" hidden></p>
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
